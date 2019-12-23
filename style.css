@@ -1,0 +1,91 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* PAGE CUSTOM SETTING */
+html {
+    font-family: sans-serif;
+    font-size: 62.5%;
+}
+
+/* body {
+    background-image: linear-gradient(90deg, skyblue, green);
+} */
+
+/* HEADER SECTION */
+.header {
+    height: 10vh;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heading {
+    font-size: 3rem;
+}
+
+span {
+    color: skyblue;
+}
+
+/* FORM SECTION */
+
+.container{
+    height: 80vh;
+    width: 100%;
+}
+
+.form-container{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.input-value{
+    padding: .5rem 1.2rem;
+    margin: .5rem auto;
+    width: 30rem;
+}
+
+label {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    align-self: flex-start;
+    margin: .5rem 0;
+}
+
+.btn {
+    align-self: center;
+    border: none;
+    padding: 1rem 3rem;
+    border-radius: .3rem;
+    cursor: pointer;
+    margin: 1rem 0;
+    transition: border .2s ease-out;
+}
+
+.btn:hover {
+    border: 1px solid grey;
+}
+
+/* TABLE */
+.table {
+    height: 100%;
+    width: 50%;
+    margin: 2rem auto;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 1px solid lightgray;
+
+}
+
+thead {
+    margin: 1rem 0;
+}
