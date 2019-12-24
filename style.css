@@ -77,15 +77,25 @@ label {
 
 /* TABLE */
 .table {
-    height: 100%;
     width: 50%;
     margin: 2rem auto;
     font-size: 1.2rem;
     font-weight: bold;
     border: 1px solid lightgray;
-
+    border-collapse: collapse;
 }
 
-thead {
-    margin: 1rem 0;
+table, th {
+    border:  1px solid grey;
+}
+
+th {
+    height: 2rem;
+}
+
+td {
+    vertical-align: middle;
+    height: 4rem;
+    text-align: center;
+    border: 1px solid grey;
 }
