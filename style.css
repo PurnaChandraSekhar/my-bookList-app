@@ -99,3 +99,20 @@ td {
     text-align: center;
     border: 1px solid grey;
 }
+
+.sam {
+    height: 2rem;
+    width: 50%;
+    color: white;
+    margin: 0 auto;
+    text-align: center;
+    padding: .5rem 0;
+}
+
+.danger {
+    background-color: red;  
+}
+
+.success {
+    background-color: green;
+}
