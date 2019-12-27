@@ -10,20 +10,8 @@ class Book {
 // UI CLASS FOR HANDLING UI EVENTS
 class UI {
  static displaybooks() {
-  const storedBooks = [
-    {
-      title: "Book one",
-      author: "John Doe",
-      isbn: "12344"
-    },
-    {
-      title: "Book one",
-      author: "John Doe",
-      isbn: "12344"
-    }
-  ]
 
-  const books = storedBooks;
+  const books = Store.getBooks();
 
   books.forEach(book => UI.addBookList(book))
  }
@@ -69,6 +57,38 @@ class UI {
  }
 }
 
+//store class
+class Store {
+   static getBooks() {
+     let books ;
+     if(localStorage.getItem('books') === null) {
+       books = [];
+     }else {
+       books = JSON.parse(localStorage.getItem('books'));
+     }
+     return books;
+   }
+
+   static addBook(book) {
+     const books = Store.getBooks();
+
+     books.push(book);
+
+     localStorage.setItem('books', JSON.stringify(books));
+   }
+
+   static removeBook(isbn) {
+     const books = Store.getBooks();
+
+     books.forEach((book, i) => {
+       if(book.isbn === isbn) {
+         books.splice(i, 1);
+       }
+     })
+
+     localStorage.setItem('books', JSON.stringify(books));
+   }
+}
 // EVENT: DISPLAY BOOK
 document.addEventListener('DOMContentLoaded', UI.displaybooks);
 
@@ -91,6 +111,9 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
     //Add Book to List
     UI.addBookList(book);
 
+    //Add book to store.
+    Store.addBook(book);
+
     UI.showAlertMessage("Book Added Successfully", "success");
 
     //Clear Fields
@@ -101,7 +124,11 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
 
   //Delete a book
   document.querySelector("#book-list").addEventListener('click', (e) => {
+    //Remove book from UI
     UI.deleteBook(e.target);
+
+    //Remvoe book from store
+    Store.removeBook(e.target.parentElement.previousElementSibling.textContent);
 
     UI.showAlertMessage("Book Removed Successfully", "success");
   })
